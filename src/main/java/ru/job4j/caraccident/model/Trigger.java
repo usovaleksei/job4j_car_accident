@@ -1,4 +1,4 @@
-package ru.job4j.car_accident.model;
+package ru.job4j.caraccident.model;
 
 public class Trigger {
     public int someLogic() {
