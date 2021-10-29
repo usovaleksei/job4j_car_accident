@@ -14,18 +14,24 @@
 </head>
 <body>
 <div class = "container">
-Hello : ${user}
     <div class="col-3">
+        <h3>Accidents</h3>
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">Strings</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Text</th>
+                <th scope="col">Address</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="string" items="${strings}">
+            <c:forEach var="accident" items="${accidents}">
                 <tr>
-                    <td><c:out value="${string}"/></td>
+                    <td><c:out value="${accident.getId()}"/></td>
+                    <td><c:out value="${accident.getName()}"/></td>
+                    <td><c:out value="${accident.getText()}"/></td>
+                    <td><c:out value="${accident.getAddress()}"/></td>
                 </tr>
             </c:forEach>
             </tbody>
