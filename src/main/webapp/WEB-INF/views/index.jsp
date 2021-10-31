@@ -30,9 +30,13 @@
             <c:forEach var="accident" items="${accidents}">
                 <tr>
                     <td><c:out value="${accident.getId()}"/></td>
-                    <td><c:out value="${accident.getName()}"/></td>
-                    <td><c:out value="${accident.getAddress()}"/></td>
+                    <td>
+                        <a href="<c:url value='/update?id=${accident.id}'/>">
+                        <c:out value="${accident.getName()}"/>
+                        </a>
+                    </td>
                     <td><c:out value="${accident.getText()}"/></td>
+                    <td><c:out value="${accident.getAddress()}"/></td>
                 </tr>
             </c:forEach>
             </tbody>
