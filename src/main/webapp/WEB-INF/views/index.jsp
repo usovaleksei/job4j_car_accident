@@ -13,9 +13,10 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-<div class = "container">
+<div class="container">
     <div class="col-3">
         <h3>Accidents</h3>
+        <p><a href="<c:url value='/create'/>">Добавить инцидент</a></p>
         <table class="table">
             <thead>
             <tr>
@@ -30,14 +31,14 @@
                 <tr>
                     <td><c:out value="${accident.getId()}"/></td>
                     <td><c:out value="${accident.getName()}"/></td>
-                    <td><c:out value="${accident.getText()}"/></td>
                     <td><c:out value="${accident.getAddress()}"/></td>
+                    <td><c:out value="${accident.getText()}"/></td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
     </div>
-</div>>
+</div>
 
 </body>
 </html>
