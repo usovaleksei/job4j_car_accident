@@ -25,6 +25,7 @@
                 <th scope="col">Text</th>
                 <th scope="col">Address</th>
                 <th scope="col">Type</th>
+                <th scope="col">Rules</th>
             </tr>
             </thead>
             <tbody>
@@ -39,6 +40,12 @@
                     <td><c:out value="${accident.getText()}"/></td>
                     <td><c:out value="${accident.getAddress()}"/></td>
                     <td><c:out value="${accident.getType().name}"/></td>
+                    <td>
+                        <c:forEach var="rule" items="${accident.rules}">
+                            <c:out value="${rule.name}"/>
+                            <br>
+                        </c:forEach>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
