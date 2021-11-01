@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="col-3">
+    <div class="col-6">
         <h3>Accidents</h3>
         <p><a href="<c:url value='/create'/>">Добавить инцидент</a></p>
         <table class="table">
@@ -24,6 +24,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Text</th>
                 <th scope="col">Address</th>
+                <th scope="col">Type</th>
             </tr>
             </thead>
             <tbody>
@@ -37,6 +38,7 @@
                     </td>
                     <td><c:out value="${accident.getText()}"/></td>
                     <td><c:out value="${accident.getAddress()}"/></td>
+                    <td><c:out value="${accident.getType().name}"/></td>
                 </tr>
             </c:forEach>
             </tbody>

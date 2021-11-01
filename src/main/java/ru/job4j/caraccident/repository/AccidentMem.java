@@ -2,6 +2,7 @@ package ru.job4j.caraccident.repository;
 
 import org.springframework.stereotype.Repository;
 import ru.job4j.caraccident.model.Accident;
+import ru.job4j.caraccident.model.AccidentType;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -9,14 +10,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class AccidentMem {
-    private HashMap<Integer, Accident> accidents = new HashMap<>();
-    AtomicInteger counter = new AtomicInteger();
+    private final HashMap<Integer, Accident> accidents = new HashMap<>();
+    private final HashMap<Integer, AccidentType> types = new HashMap<>();
+    private final AtomicInteger counter = new AtomicInteger();
 
     public AccidentMem() {
-        accidents.put(counter.incrementAndGet(), new Accident(counter.get(), "Accident one", "text one", "Moscow"));
-        accidents.put(counter.incrementAndGet(), new Accident(counter.get(), "Accident two", "text two", "Moscow"));
-        accidents.put(counter.incrementAndGet(), new Accident(counter.get(), "Accident three", "text three", "Moscow"));
-        accidents.put(counter.incrementAndGet(), new Accident(counter.get(), "Accident four", "text four", "Moscow"));
+        types.put(1, AccidentType.of(1, "Две машины"));
+        types.put(2, AccidentType.of(2, "Машина и человек"));
+        types.put(3, AccidentType.of(3, "Машина и велосипед"));
     }
 
     public Collection<Accident> getAllAccidents() {
@@ -33,5 +34,13 @@ public class AccidentMem {
 
     public Accident findAccidentById(int id) {
         return this.accidents.get(id);
+    }
+
+    public Collection<AccidentType> getAllAccidentTypes() {
+        return this.types.values();
+    }
+
+    public AccidentType findAccidentTypeById(int id) {
+        return this.types.get(id);
     }
 }
