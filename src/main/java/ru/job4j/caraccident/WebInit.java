@@ -8,7 +8,6 @@ import ru.job4j.caraccident.config.WebConfig;
 
 import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 public class WebInit implements WebApplicationInitializer {
