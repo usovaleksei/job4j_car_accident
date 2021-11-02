@@ -7,7 +7,6 @@ import ru.job4j.caraccident.model.Rule;
 import ru.job4j.caraccident.repository.AccidentMem;
 
 import java.util.Collection;
-import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Service
@@ -40,10 +39,6 @@ public class AccidentService {
 
     public Collection<Rule> getAllRules() {
         return store.findAllRules();
-    }
-
-    public Rule findRuleById(int id) {
-        return store.findRuleById(id);
     }
 
     public Set<Rule> getRulesForAccident(String[] ids) {
