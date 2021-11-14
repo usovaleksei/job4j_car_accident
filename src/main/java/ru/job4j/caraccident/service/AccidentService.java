@@ -1,47 +1,25 @@
 package ru.job4j.caraccident.service;
 
-import org.springframework.stereotype.Service;
 import ru.job4j.caraccident.model.Accident;
 import ru.job4j.caraccident.model.AccidentType;
 import ru.job4j.caraccident.model.Rule;
-import ru.job4j.caraccident.repository.AccidentMem;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
-@Service
-public class AccidentService {
-    private final AccidentMem store;
+public interface AccidentService {
 
-    public AccidentService(AccidentMem store) {
-        this.store = store;
-    }
+    List<Accident> getAllAccidents();
 
-    public Collection<Accident> getAllAccidents() {
-        return store.getAllAccidents();
-    }
+    void saveAccident(Accident accident);
 
-    public void saveAccident(Accident accident) {
-        store.createAccident(accident);
-    }
+    Accident findAccidentById(int id);
 
-    public Accident findAccidentById(int id) {
-        return store.findAccidentById(id);
-    }
+    List<AccidentType> getAllAccidentTypes();
 
-    public Collection<AccidentType> getAllAccidentTypes() {
-        return store.getAllAccidentTypes();
-    }
+    AccidentType findAccidentTypeById(int id);
 
-    public AccidentType findAccidentTypeById(int id) {
-        return store.findAccidentTypeById(id);
-    }
+    List<Rule> getAllRules();
 
-    public Collection<Rule> getAllRules() {
-        return store.findAllRules();
-    }
-
-    public Set<Rule> getRulesForAccident(String[] ids) {
-        return store.getRulesForAccident(ids);
-    }
+    Set<Rule> getRulesForAccident(String[] ids);
 }
