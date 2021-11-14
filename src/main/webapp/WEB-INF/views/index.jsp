@@ -34,12 +34,12 @@
                     <td><c:out value="${accident.getId()}"/></td>
                     <td>
                         <a href="<c:url value='/update?id=${accident.id}'/>">
-                        <c:out value="${accident.getName()}"/>
+                        <c:out value="${accident.name}"/>
                         </a>
                     </td>
-                    <td><c:out value="${accident.getText()}"/></td>
-                    <td><c:out value="${accident.getAddress()}"/></td>
-                    <td><c:out value="${accident.getType().name}"/></td>
+                    <td><c:out value="${accident.text}"/></td>
+                    <td><c:out value="${accident.address}"/></td>
+                    <td><c:out value="${accident.type.name}"/></td>
                     <td>
                         <c:forEach var="rule" items="${accident.rules}">
                             <c:out value="${rule.name}"/>

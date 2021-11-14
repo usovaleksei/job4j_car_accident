@@ -5,14 +5,12 @@ import ru.job4j.caraccident.model.Accident;
 import ru.job4j.caraccident.model.AccidentType;
 import ru.job4j.caraccident.model.Rule;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
-@Repository
-public class AccidentMem {
+//@Repository
+public class AccidentMem implements AccidentRepository {
     private final HashMap<Integer, Accident> accidents = new HashMap<>();
     private final HashMap<Integer, AccidentType> types = new HashMap<>();
     private final HashMap<Integer, Rule> rules = new HashMap<>();
@@ -32,6 +30,16 @@ public class AccidentMem {
         return accidents.values();
     }
 
+    @Override
+    public void save(Accident accident) {
+
+    }
+
+    @Override
+    public List<Accident> getAll() {
+        return null;
+    }
+
     public void createAccident(Accident accident) {
         if (accident.getId() == 0) {
             int id = this.counter.incrementAndGet();
@@ -44,26 +52,26 @@ public class AccidentMem {
         return this.accidents.get(id);
     }
 
-    public Collection<AccidentType> getAllAccidentTypes() {
-        return this.types.values();
+    public List<AccidentType> getAllAccidentTypes() {
+        return new ArrayList<>(this.types.values());
     }
 
     public AccidentType findAccidentTypeById(int id) {
         return this.types.get(id);
     }
 
-    public Collection<Rule> findAllRules() {
-        return rules.values();
+    public List<Rule> findAllRules() {
+        return new ArrayList<>(rules.values());
     }
 
     public Rule findRuleById(int id) {
         return rules.get(id);
     }
 
-    public Set<Rule> getRulesForAccident(String[] ids) {
+    public Set<Rule> getRulesForAccident(List<Integer> ids) {
         Set<Rule> rules = new LinkedHashSet<>();
-        for (String id : ids) {
-            rules.add(findRuleById(Integer.parseInt(id)));
+        for (Integer id : ids) {
+            rules.add(findRuleById(id));
         }
         return rules;
     }
