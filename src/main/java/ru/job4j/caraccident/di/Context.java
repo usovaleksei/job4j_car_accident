@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Context {
-    private Map<String, Object> els = new HashMap<String, Object>();
+    private final Map<String, Object> els = new HashMap<String, Object>();
 
     public void reg(Class cl) {
         Constructor[] constructors = cl.getDeclaredConstructors();

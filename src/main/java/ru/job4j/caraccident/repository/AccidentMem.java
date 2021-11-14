@@ -1,15 +1,12 @@
 package ru.job4j.caraccident.repository;
 
-import org.springframework.stereotype.Repository;
 import ru.job4j.caraccident.model.Accident;
 import ru.job4j.caraccident.model.AccidentType;
 import ru.job4j.caraccident.model.Rule;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
-//@Repository
 public class AccidentMem implements AccidentRepository {
     private final HashMap<Integer, Accident> accidents = new HashMap<>();
     private final HashMap<Integer, AccidentType> types = new HashMap<>();

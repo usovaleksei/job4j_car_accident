@@ -1,7 +1,5 @@
 package ru.job4j.caraccident.repository;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -18,9 +16,6 @@ import java.util.*;
 public class AccidentJdbcTemplate implements AccidentRepository {
 
     private final JdbcTemplate jdbc;
-
-    private static final Logger LOG =
-            LoggerFactory.getLogger(AccidentJdbcTemplate.class.getName());
 
     public AccidentJdbcTemplate(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
